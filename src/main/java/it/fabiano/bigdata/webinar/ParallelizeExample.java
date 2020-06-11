@@ -19,7 +19,7 @@ public class ParallelizeExample {
 	public static void main(String[] args) {
 
 		Logger.getLogger("org").setLevel(Level.ERROR);
-		SparkConf conf = new SparkConf().setAppName("RDD-creator").setMaster("local[*]");
+		SparkConf conf = new SparkConf().setAppName("RDD-creator").setMaster("local[2]");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
 

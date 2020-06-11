@@ -68,8 +68,6 @@ public class SparkSQLExample {
        
          
         maxPerProvincia.show(200);
-        long count = maxPerProvincia.count();
-        System.out.println(count);
         
         sparkSession.cloneSession();
       

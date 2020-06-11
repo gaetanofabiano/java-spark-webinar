@@ -19,21 +19,18 @@ import java.util.Map;
 public class CountExample {
 
     public static void main(String[] args) throws Exception {
+    	
         Logger.getLogger("org").setLevel(Level.INFO);
         
-        SparkConf conf = new SparkConf().setAppName("count").setMaster("local[*]");
+        SparkConf conf = new SparkConf().setAppName("count").setMaster("local[1]");
        
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        List<String> inputWords = Arrays.asList("spark", "hadoop", "spark", "hive", "pig", "cassandra", "hadoop");
+        List<String> inputWords = Arrays.asList("spark", "hadoop", "spark", "hive", "spark", "cassandra", "hadoop", "kakfa");
         
         JavaRDD<String> wordRdd = sc.parallelize(inputWords);
 
-        System.out.println("Count: " + wordRdd.count());
-
         Map<String, Long> wordCountByValue = wordRdd.countByValue();
-
-        System.out.println("CountByValue:");
         
 
         for (Map.Entry<String, Long> entry : wordCountByValue.entrySet()) {
